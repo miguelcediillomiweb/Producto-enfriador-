@@ -106,3 +106,8 @@ footer { position:relative; z-index:1; background:var(--azul-oscuro); color:#fff
 footer .animated-emoji { font-size:1.25em; }
 @media(max-width:420px) { .brand-circles{gap:15px 12px}.brand-detail{padding:18px 14px}.detail-head{gap:12px}.detail-logo{width:70px;height:70px;flex-basis:70px}.detail-title{font-size:1.3rem} }
 @media(prefers-reduced-motion:reduce) { .animated-emoji,.loader-logo,.loader-spark,.loader-dots i,.progress-bar::after {animation:none!important}.brand-detail{animation:none} }
+
+.brand-circle { appearance:none; border:0; background:transparent; font:inherit; cursor:pointer; }
+.brand-circle[aria-pressed="true"] .brand-circle__logo { transform:scale(1.07); box-shadow:0 0 0 4px #ffffff,0 0 0 7px var(--brand),0 0 25px var(--brand); }
+.brand-circle__emoji { display:block; font-size:1.15rem; margin-top:5px; }
+.brand-circle:focus-visible { outline:3px solid var(--azul-oscuro); outline-offset:5px; border-radius:14px; }
