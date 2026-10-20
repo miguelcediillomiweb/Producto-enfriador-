@@ -1,0 +1,57 @@
+/* STYLES.CSS - Grupo Peñafiel - Ruta 1371 */
+:root {
+  --azul: #0072ce; --azul-oscuro: #002f6c; --cian: #00b4d8;
+  --texto: #1f2a44; --texto-suave: #4a5568; --tarjeta: #ffffff;
+  --fondo-1: #eaf4ff; --fondo-2: #fdf6ff; --radio: 20px;
+}
+body[data-season="navidad"] { --fondo-1:#e9f7ef; --fondo-2:#fff0f0; --azul:#c0392b; --azul-oscuro:#145a32; }
+body[data-season="muertos"] { --fondo-1:#fff3e0; --fondo-2:#f3e5f5; --azul:#e67e22; --azul-oscuro:#4a235a; }
+body[data-season="patrias"] { --fondo-1:#e8f5e9; --fondo-2:#fdecea; --azul:#1e8449; --azul-oscuro:#922b21; }
+body[data-season="verano"] { --fondo-1:#e0f7fa; --fondo-2:#fffde7; --azul:#0097a7; --azul-oscuro:#01579b; }
+* { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body { font-family:'Trebuchet MS','Segoe UI',Roboto,Helvetica,Arial,sans-serif; color:var(--texto); background:linear-gradient(160deg,var(--fondo-1),var(--fondo-2)); background-attachment:fixed; min-height:100vh; display:flex; flex-direction:column; }
+img { max-width:100%; display:block; }
+.animated-emoji { display:inline-block; animation:pulseBounce 1.5s infinite ease-in-out; }
+@keyframes pulseBounce { 0%,100%{transform:scale(1) translateY(0)} 50%{transform:scale(1.3) translateY(-5px)} }
+#season-layer { position:fixed; inset:0; overflow:hidden; pointer-events:none; z-index:0; }
+.season-emoji { position:absolute; top:-10%; left:var(--x,50%); font-size:var(--size,24px); opacity:.55; animation:caer var(--dur,14s) linear var(--delay,0s) infinite; }
+@keyframes caer { 0%{transform:translateY(0) rotate(0)} 100%{transform:translateY(115vh) rotate(360deg)} }
+#loader-screen { position:fixed; inset:0; background:#fff; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:20px; text-align:center; z-index:99999; animation:ocultarCarga .6s ease 5s forwards; }
+body.loaded #loader-screen { opacity:0; visibility:hidden; transition:opacity .6s ease,visibility .6s ease; }
+@keyframes ocultarCarga { to{opacity:0;visibility:hidden} }
+.loader-image { max-width:280px; width:80%; height:auto; margin-bottom:25px; border-radius:16px; box-shadow:0 8px 20px rgba(0,0,0,.08); }
+.progress-container { width:85%; max-width:420px; height:18px; background:#e2e8f0; border-radius:20px; overflow:hidden; box-shadow:inset 0 2px 4px rgba(0,0,0,.1); margin-bottom:25px; }
+.progress-bar { width:0; height:100%; background:linear-gradient(90deg,var(--azul),var(--cian)); border-radius:20px; animation:llenar 5s linear forwards; }
+@keyframes llenar { to{width:100%} }
+.loader-text { font-size:1.15rem; font-weight:700; line-height:1.6; max-width:550px; color:var(--azul); }
+#main-content { position:relative; z-index:1; flex:1; width:100%; max-width:900px; margin:0 auto; padding:20px 15px 30px; }
+.greeting-card { background:var(--tarjeta); padding:24px 20px; border-radius:var(--radio); text-align:center; margin-bottom:28px; border:3px solid var(--azul); box-shadow:0 0 16px var(--azul),inset 0 0 12px rgba(0,114,206,.08); }
+.greeting-title { font-size:1.7rem; color:var(--azul); margin-bottom:8px; }
+.greeting-subtitle { font-size:1.05rem; color:var(--texto-suave); }
+.block { margin-bottom:32px; }
+.section-title { font-size:1.4rem; color:var(--azul-oscuro); text-align:center; margin-bottom:20px; }
+.brand-circles { display:flex; flex-wrap:wrap; justify-content:center; gap:22px 18px; }
+.brand-circle { --brand:var(--azul); width:112px; text-align:center; text-decoration:none; color:var(--texto); }
+.brand-circle__logo { width:112px; height:112px; border-radius:50%; background:#fff; border:4px solid var(--brand); display:flex; align-items:center; justify-content:center; overflow:hidden; font-size:2.6rem; box-shadow:0 0 8px var(--brand),0 0 22px var(--brand); animation:neon 2.4s ease-in-out infinite alternate; }
+.brand-circle__logo img { width:78%; height:78%; object-fit:contain; }
+.brand-circle__name { display:block; margin-top:10px; font-weight:700; font-size:.95rem; }
+@keyframes neon { from{box-shadow:0 0 6px var(--brand),0 0 14px var(--brand)} to{box-shadow:0 0 12px var(--brand),0 0 32px var(--brand)} }
+.brand-banners { display:grid; gap:22px; }
+.brand-banner { --brand:var(--azul); display:flex; align-items:center; gap:18px; background:var(--tarjeta); border:4px solid var(--brand); border-radius:var(--radio); padding:18px; box-shadow:0 0 10px var(--brand),0 0 26px color-mix(in srgb,var(--brand) 55%,transparent); }
+.brand-banner__logo { flex:0 0 auto; width:84px; height:84px; border-radius:50%; border:3px solid var(--brand); background:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden; font-size:2.2rem; box-shadow:0 0 10px var(--brand); }
+.brand-banner__logo img { width:78%; height:78%; object-fit:contain; }
+.brand-banner__title { font-size:1.2rem; color:var(--brand); margin-bottom:4px; }
+.brand-banner__text { font-size:.95rem; color:var(--texto-suave); line-height:1.5; }
+.brand-banner__products { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; list-style:none; }
+.chip { background:color-mix(in srgb,var(--brand) 12%,#fff); border:1.5px solid var(--brand); border-radius:999px; padding:4px 12px; font-size:.85rem; font-weight:600; }
+.news-list { display:grid; gap:16px; }
+.news-item { --brand:var(--azul); background:var(--tarjeta); border:3px dashed var(--brand); border-radius:var(--radio); padding:16px; text-align:center; box-shadow:0 0 14px color-mix(in srgb,var(--brand) 50%,transparent); }
+.news-item img { margin:0 auto 10px; max-height:180px; border-radius:12px; }
+.news-item video { width:100%; border-radius:12px; margin-bottom:10px; }
+.news-item__title { color:var(--brand); font-size:1.1rem; }
+footer { position:relative; z-index:1; background:var(--azul-oscuro); color:#fff; text-align:center; padding:28px 15px; line-height:1.7; }
+.footer-brand { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:8px; font-size:1.1rem; font-weight:600; }
+.footer-copyright { margin-top:12px; padding-top:12px; border-top:1px solid rgba(255,255,255,.15); font-size:.88rem; color:#cbd5e0; }
+@media(max-width:480px) { .brand-banner{flex-direction:column;text-align:center} .brand-banner__products{justify-content:center} .greeting-title{font-size:1.45rem} }
+@media(prefers-reduced-motion:reduce) { .animated-emoji,.brand-circle__logo,.season-emoji{animation:none} .progress-bar{animation-duration:.01s} }
