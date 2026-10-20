@@ -3,42 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0072ce">
   <title>Grupo Peñafiel - Ruta 1371</title>
-  <meta name="description" content="Conoce todas las marcas que maneja Grupo Peñafiel - Ruta 1371.">
+  <meta name="description" content="Conoce las marcas de Grupo Peñafiel y Ruta 1371.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div id="season-layer" aria-hidden="true"></div>
-  <div id="loader-screen">
-    <img src="productos.jpg" alt="Productos Grupo Peñafiel" class="loader-image" onerror="this.style.display='none'">
-    <div class="progress-container"><div class="progress-bar"></div></div>
-    <p class="loader-text">
-      <span class="animated-emoji">✨</span>
-      Gracias por atreverte a conocer más de Grupo Peñafiel
-      <span class="animated-emoji">🥤</span>
-      <span class="animated-emoji">🌟</span>
-    </p>
-  </div>
+
+  <section id="loader-screen" aria-label="Cargando página">
+    <div class="loader-logo" aria-hidden="true"><span class="loader-bottle">🥤</span><span class="loader-spark">✨</span></div>
+    <h1 class="loader-heading"><span class="animated-emoji">🚚</span> Grupo Peñafiel <span class="animated-emoji">🎉</span></h1>
+    <p class="loader-text"><span class="animated-emoji">💧</span> Preparando algo refrescante para ti <span class="animated-emoji">🌟</span></p>
+    <div class="progress-container" role="progressbar" aria-label="Carga de la página" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+    <p class="progress-label"><span id="progress-number">0</span><span>%</span></p>
+    <div class="loader-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+  </section>
+
   <main id="main-content">
     <section class="greeting-card">
-      <h1 class="greeting-title" id="greeting-text"></h1>
+      <div class="greeting-decoration" aria-hidden="true"><span class="animated-emoji">✨</span><span class="animated-emoji">🥤</span><span class="animated-emoji">🎈</span></div>
+      <h1 class="greeting-title" id="greeting-text">¡Bienvenido!</h1>
       <p class="greeting-subtitle">Te damos la bienvenida a <strong>Grupo Peñafiel</strong> y la <strong>Ruta 1371</strong> <span class="animated-emoji">🚚</span></p>
+      <p class="greeting-date" id="greeting-date"></p>
     </section>
+
     <section class="block">
-      <h2 class="section-title"><span class="animated-emoji">🎉</span> Nuestras marcas <span class="animated-emoji">🌈</span></h2>
+      <h2 class="section-title"><span class="animated-emoji">🎉</span> ¡Conoce nuestras marcas! <span class="animated-emoji">🌈</span></h2>
+      <p class="section-hint">Toca un círculo para descubrir esa marca <span class="animated-emoji">👇</span></p>
       <div id="brand-circles" class="brand-circles"></div>
     </section>
-    <section class="block">
-      <h2 class="section-title"><span class="animated-emoji">🍾</span> Todo lo que manejamos <span class="animated-emoji">⚡</span></h2>
-      <div id="brand-banners" class="brand-banners"></div>
+
+    <section id="brand-detail" class="brand-detail" hidden aria-live="polite">
+      <button type="button" id="close-detail" class="close-detail" aria-label="Cerrar detalle">✕</button>
+      <div id="brand-detail-content"></div>
     </section>
-    <section class="block" id="news-section" hidden>
-      <h2 class="section-title"><span class="animated-emoji">🆕</span> Novedades <span class="animated-emoji">🎁</span></h2>
-      <div id="news-list" class="news-list"></div>
+
+    <section class="welcome-banner">
+      <span class="animated-emoji">🚚</span>
+      <p>¡Gracias por conocer lo que mueve a la <strong>Ruta 1371</strong>!</p>
+      <span class="animated-emoji">💙</span>
     </section>
   </main>
+
   <footer>
-    <div class="footer-brand"><span>Creado por Grupo Peñafiel y Ruta 1371 con todo el</span><span class="animated-emoji">❤️</span></div>
+    <div class="footer-brand"><span class="animated-emoji">💙</span><span>Grupo Peñafiel y Ruta 1371</span><span class="animated-emoji">❤️</span></div>
     <div class="footer-copyright">Designed and Created by Miguel Cedillo 1371 © 2026 <span class="animated-emoji">🚀</span></div>
   </footer>
   <script src="script.js"></script>
