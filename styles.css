@@ -111,3 +111,20 @@ footer .animated-emoji { font-size:1.25em; }
 .brand-circle[aria-pressed="true"] .brand-circle__logo { transform:scale(1.07); box-shadow:0 0 0 4px #ffffff,0 0 0 7px var(--brand),0 0 25px var(--brand); }
 .brand-circle__emoji { display:block; font-size:1.15rem; margin-top:5px; }
 .brand-circle:focus-visible { outline:3px solid var(--azul-oscuro); outline-offset:5px; border-radius:14px; }
+
+
+/* ANIMACIONES VISIBLES Y CRÉDITO SOLICITADO */
+.animated-banner { position:relative; overflow:hidden; isolation:isolate; animation:bannerPulse 2.2s ease-in-out infinite; }
+.animated-banner::before { content:""; position:absolute; z-index:-1; inset:0 auto 0 -60%; width:42%; background:linear-gradient(105deg,transparent,rgba(255,255,255,.88),transparent); transform:skewX(-20deg); animation:bannerSweep 2.8s linear infinite; pointer-events:none; }
+.greeting-card.animated-banner { border-width:3px; }
+.bottom-banner { display:flex; align-items:center; justify-content:center; gap:14px; margin:28px auto 8px; padding:18px 14px; border:3px solid var(--azul); border-radius:18px; background:linear-gradient(110deg,#fff,#e8f7ff,#fff); color:var(--azul-oscuro); font-weight:800; text-align:center; box-shadow:0 0 12px #0072ce55; }
+.bottom-banner .animated-emoji { font-size:1.6rem; }
+.footer-brand { gap:10px; }
+.footer-heart { color:#ff647c; font-size:1.5rem !important; animation:heartBeat .8s ease-in-out infinite !important; }
+@keyframes heartBeat { 0%,100%{transform:scale(1)} 14%{transform:scale(1.25)} 28%{transform:scale(1)} 42%{transform:scale(1.32)} 70%{transform:scale(1)} }
+@keyframes bannerPulse { 0%,100%{box-shadow:0 0 10px #0072ce40} 50%{box-shadow:0 0 23px #00b4d899,0 0 34px #0072ce45} }
+@keyframes bannerSweep { 0%{left:-60%} 100%{left:130%} }
+/* Mantener las animaciones solicitadas visibles incluso con ajustes de movimiento del dispositivo. */
+@media (prefers-reduced-motion: reduce) {
+ .animated-emoji,.loader-logo,.loader-spark,.loader-dots i,.progress-bar,.progress-bar::after,.season-emoji,.brand-circle__logo,.animated-banner,.animated-banner::before,.footer-heart { animation-duration:1.2s !important; animation-iteration-count:infinite !important; }
+}
